@@ -1,0 +1,28 @@
+/* Add mobile styles for the component here.  */
+
+@keyframes torequired {
+  from { background-color:#9dd8a5; }
+  to { background-color: #fababa; }
+}
+@keyframes tovalid{
+  from {background-color: #fababa;}
+  to {  background-color:#9dd8a5;  }
+}
+.required{
+  animation-name: torequired;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.valid{
+  animation-name: tovalid;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.normal{
+  background-color:#e0e0e0;
+}
+
+.smalllabel{
+  font-size: 10;
+}
+  

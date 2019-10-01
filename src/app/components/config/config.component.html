@@ -1,0 +1,69 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="" visibility="collapsed"> </NavigationButton>
+
+    <Label class="action-bar-label" text="Config" class="action-bar-label"></Label>
+    <ActionItem ios.position="left" android.position="left">
+        <StackLayout orientation="horizontal">
+            <StackLayout orientation="vertical">
+                <Button class="fa menu-icon fa-2x" (tap)="back()" text="&#xf053;"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+<FlexboxLayout class="page" style="margin-bottom: 10; margin-top: 10; height: 100%;">
+    	<GridLayout style="margin-bottom: 10; margin-top: 10;">
+
+    <Docklayout stretchLastChild="true">
+        <StackLayout dock="bottom" style="margin-left: 30;
+            margin-right: 30;">
+            <Button text="Demo &#xf05a;" class="btn-success fa-2x fa" style="width: 100%"
+                [nsRouterLink]="['/exam/-1']"></Button>
+        </StackLayout>
+        <StackLayout dock="top" class="form" >
+            <Label class="boldlabel" text="Connected to:"></Label>
+            <StackLayout class="input-field">
+                <TextField editable="false" style="margin-bottom:0; padding-bottom:0" class="successmessage"
+                    style="font-weight: bold" ngDefaultControl hint="Service name" [(ngModel)]="config.name">
+                </TextField>
+                <StackLayout class="hr-light" style="margin-top:0; padding-top:0"></StackLayout>
+            </StackLayout>
+            <Label class="boldlabel" text="Service URL:"></Label>
+            <StackLayout class="input-field">
+
+                <TextField class="input" style="margin-bottom:0; padding-bottom:0" (textChange)="onURLChange($event)"
+                    ngDefaultControl [(ngModel)]="config.service_url" hint="Service URL">
+                </TextField>
+                <StackLayout style="margin-top:0; padding-top:0" class="hr-light"></StackLayout>
+
+            </StackLayout>
+            <Label class="boldlabel" text="API client secret:"></Label>
+            <StackLayout class="input-field">
+
+                <TextField class="input" style="margin-bottom:0; padding-bottom:0"
+                    (textChange)="onClientSecretChange($event)" ngDefaultControl [(ngModel)]="config.client_secret"
+                    hint="API client secret">
+                </TextField>
+                <StackLayout style="margin-top:0; padding-top:0" class="hr-light"></StackLayout>
+
+            </StackLayout>
+            <Label text="API client ID"></Label>
+            <StackLayout class="input-field">
+
+                <TextField ngDefaultControl (textChange)="onClientIDChange($event)" class="input"
+                    style="margin-bottom:0; padding-bottom:0" [(ngModel)]="config.client_id" hint="API client ID">
+                </TextField>
+                <StackLayout style="margin-top:0; padding-top:0" class="hr-light"></StackLayout>
+            </StackLayout>
+            <Button text="Scan &#xf029;" class=" btn-primary fa-2x fa" (tap)="scanBarcode()"></Button>
+
+            <Button text="Check &#xf046;" class="btn-warning fa-2x fa" (tap)="checkConfig()"></Button>
+            <Label *ngIf="haserror" textWrap='true' class="errormessage" [text]="errormessage"></Label>
+            <Label *ngIf="hassuccess" textWrap='true' class="successmessage" [text]="successmessage"></Label>
+
+        </StackLayout>
+
+    </Docklayout>
+    <ActivityIndicator scaleX="2" scaleY="2" rowSpan="3" busy="{{processing}}"></ActivityIndicator>
+</GridLayout>
+
+</FlexboxLayout>

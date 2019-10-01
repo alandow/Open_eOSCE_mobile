@@ -1,0 +1,8 @@
+<StackLayout margin="24" horizontalAlignment="center" (showingModally)="onload($event)" (isLoaded)="onIsLoaded($event)" verticalAlignment="top" class="commentdialog">
+        <Label text="Enter comment"></Label>
+        <StackLayout orientation="horizontal" marginTop="12">
+                <TextView id="comment_entry" (loaded)="onTextfieldLoad($event)" (returnPress)="doneTap($event)" hint="Enter some text" fontSize="16" style="background-color:#faffbd;"  height="200px" width="80%" editable="true"
+                        [(ngModel)]="comment"></TextView>
+        </StackLayout>
+        <Button text="Done" class="btn-success" (tap)="close(comment)"></Button>
+</StackLayout>

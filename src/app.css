@@ -1,0 +1,223 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import '~nativescript-theme-core/css/core.light.css';
+.fa {
+  font-family: "FontAwesome";
+}
+
+
+
+.action-bar {
+   background-color: #CDCDCD;
+  
+}
+.action-bar-label2 {
+  font-size: 20;
+  font-weight: 600;
+}
+:disabled {
+  opacity: 0.5;
+}
+
+
+.errormessage{
+  color: red;
+}
+
+.successmessage{
+  color: #4cae4c;
+}
+
+.header {
+  horizontal-align: center;
+  font-size: 25;
+  font-weight: 600;
+  margin-bottom: 50;
+  text-align: center;
+  color: #4cae4c;
+}
+
+.smallerheader {
+  horizontal-align: center;
+  font-size: 20;
+  font-weight: 600;
+  margin-bottom: 10;
+  margin-top: 10;
+  text-align: center;
+  color: #303030;
+}
+
+
+
+.titlecontainer{
+  margin-left: 30;
+  margin-right: 30;
+  margin-top: 50;
+  vertical-align: middle;
+}
+
+/* Bootstrap-style styles for buttons */
+
+
+
+.btn-primary {
+  height: 50;
+  margin: 5;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn-success {
+  height: 50;
+  margin: 5;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-success-disabled{
+  height: 50;
+  margin: 5;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  opacity: 0.5;
+}
+
+
+.btn-info {
+  height: 50;
+  margin: 5;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn-warning {
+  height: 50;
+  margin: 5;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.btn-danger {
+  height: 50;
+  margin: 5;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.btn-submit {
+  height: 50;
+  margin: 5;
+  border-radius: 5;
+  font-size: 20;
+  font-weight: 600;
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* Labels */
+.action-bar-label{
+  font-weight: bold;
+  font-size: 18;
+  color: #303030;
+}
+
+.boldlabel{
+  font-weight: bold;
+  color: #303030;
+}
+
+/*
+icons
+*/
+.menu-icon {
+  font-size: 26; 
+  color: #a8a8a8;
+  vertical-align: center;
+} 
+
+/*
+Dialogs
+*/
+
+.dialog{
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 5;
+  padding: 5;
+}
+
+.commentdialog{
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5;
+  padding: 5;
+}
+
+/*
+textfields
+*/
+.requiredtextfield{
+  background-color:#faffbd; 
+   border-width: 1;
+                border-color:#d43f3a;
+                border-radius: 3;
+                height: 100%;
+}
+
+.normaltextfield{
+  background-color:#faffbd;
+    border-width: 1;
+  border-color:#46b8da;
+  border-radius: 3;
+  font-size: 12;
+  height: 100%;
+}
+
+/*
+Popup message styles
+*/
+
+.popupstack{
+  margin:5;
+  padding: 5;
+  background-color: #f6f6f6;
+}
+
+.popuplabel{
+  margin: auto;
+height: 30;
+  width: 100%;
+  background-color: #f6f6f6;
+}

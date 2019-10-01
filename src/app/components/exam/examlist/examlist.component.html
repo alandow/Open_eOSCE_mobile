@@ -1,0 +1,30 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="" visibility="collapsed"></NavigationButton>
+    <Label text="Logged in as {{userservice.user.name}}" class="action-bar-label"></Label>
+    <ActionItem ios.position="left" android.position="popup">
+            <StackLayout orientation="vertical">
+            <Button  class="fa menu-icon"  (tap)="logout()" text="&#xf08b;"></Button>
+        </StackLayout>
+        
+    </ActionItem>
+</ActionBar>
+<FlexboxLayout class="page">
+    <GridLayout>
+        <ScrollView>
+            <StackLayout class="form" orientation="vertical">
+
+                <Label class="smallerheader" text="Available examinations"></Label>
+
+                <StackLayout *ngFor="let assessment of assessmentlist" width="100%">
+                    <Button [text]="assessment.name" [nsRouterLink]="['../exam/'+assessment.id]"
+                        class="btn btn-primary"></Button>
+                </StackLayout>
+
+
+                <Label *ngIf="haserror" class="errormessage" [text]="errormessage" textWrap='true'></Label>
+
+            </StackLayout>
+        </ScrollView>
+        <ActivityIndicator scaleX="2" scaleY="2" rowSpan="3" busy="{{processing}}"></ActivityIndicator>
+    </GridLayout>
+</FlexboxLayout>

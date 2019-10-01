@@ -1,0 +1,47 @@
+.isandro {
+    padding-right: 15;
+  
+  }
+  
+  .menu-icon {
+    font-size: 26; 
+    color: #a8a8a8;
+    vertical-align: center;
+  } 
+  
+  .page {
+      align-items: center;
+      flex-direction: column;
+    }
+    .form {
+      margin-left: 30;
+      margin-right: 30;
+      flex-grow: 2;
+      vertical-align: top;
+    }
+    
+   
+    .header {
+      horizontal-align: center;
+      font-size: 25;
+      font-weight: 600;
+      margin-bottom: 20;
+      text-align: center;
+      color: #D51A1A;
+    }
+    
+    .input-field {
+      margin-bottom: 10;
+    }
+    .input {
+      font-size: 18;
+      background-color:#faffbd; 
+      border-bottom: 1px solid #46b8da;
+      height: 40;
+    }
+    
+   
+    .bold {
+      color: #000000; 
+    }
+    

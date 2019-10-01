@@ -1,0 +1,71 @@
+<ActionBar class="action-bar"  >
+    <NavigationButton text="" visibility="collapsed"></NavigationButton>
+ 
+    <Label *ngIf="currentAssessment" text="{{headingstring}}{{connectedstring}}" textWrap="true" id="headertext" [class.disconnected]="!connected" class="action-bar-label"></Label>
+ 
+ 
+
+    <ActionItem ios.position="left" android.position="left">
+<!--             <ns-statusindindicator  (networkStatusChange)="onConnectionChange($event)"></ns-statusindindicator>
+ -->        <StackLayout orientation="horizontal">
+            <StackLayout orientation="vertical">
+                <Button class="fa menu-icon fa-2x" (tap)="back()" text="&#xf053;"></Button>
+            </StackLayout>
+           
+        </StackLayout>
+        
+    </ActionItem>
+    <ActionItem ios.position="right" android.position="right">
+        <StackLayout orientation="vertical">
+
+            <Button class="fa menu-icon fa-2x" (tap)="getStudentList()" id="getstudentbut" style=" 
+                    padding-right: 10px; 
+                    margin-top: 10px" text="&#xf2be;
+                    "></Button>
+                   
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<FlexboxLayout class="page" #mainview>
+    <GridLayout >
+        <ScrollView>
+            <StackLayout class="form" orientation="vertical" id="theform">
+                <GridLayout [class.disabled]="!examEnabled">
+                    <StackLayout *ngIf="currentAssessment">
+                        <StackLayout *ngFor="let instance_item of currentAssessment.exam_instance_items; let i= index">
+                            <ns-examitem [id]="'item_'+instance_item.id" [comment]="instance_item.comment"
+                                [(item)]="instance_item" [enabled]="examEnabled" (changeEvent)="onChangeEvent($event)"
+                                (commentEvent)="showCommentEntry($event)"></ns-examitem>
+                        </StackLayout>
+
+                        <StackLayout orientation="vertical" width="100%">
+                            <Label text="Overall comments" backgroundColor="#e0e0e0" width="100%" textWrap="true"
+                                height="50"></Label>
+                            <StackLayout orientation="horizontal" width="100%">
+
+                                <!-- Make this dependent on some things -->
+                                <StackLayout width="100%" shadow elevation="6" orientation="vertical" padding="10">
+                                    <TextView class="normaltextfield" fontSize="16" *ngIf="currentAssessment" hint="Enter some text"
+                                        [(ngModel)]="currentAssessment.comment" height="150px"></TextView>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <AbsoluteLayout *ngIf="!examEnabled" class="disabled-exam"></AbsoluteLayout>
+
+                </GridLayout>
+
+                <Button *ngIf="currentAssessment" text="Submit &#xf0c7;" id="submitbut" height="60" class="fa fa-2x" [class.btn-success]="examValid"
+                    [class.btn-success-disabled]="!examValid " style="height: 80px" (tap)="submit()"
+                    [isEnabled]="examValid"></Button>
+
+            </StackLayout>
+
+        </ScrollView>
+      
+        <ActivityIndicator scaleX="2" scaleY="2" rowSpan="3" busy="{{processing}}"></ActivityIndicator>      
+    </GridLayout>
+
+</FlexboxLayout>

@@ -1,0 +1,35 @@
+<ActionBar class="action-bar">
+	<NavigationButton text="" visibility="collapsed"></NavigationButton>
+	<Label text="Open eOSCE: {{networkService.config.name}}" class="action-bar-label2"></Label>
+	<ActionItem ios.position="right" android.position="popup">
+		<Label text="&#xf013;" class="fa menu-icon" [nsRouterLink]="['/config']"></Label>
+	</ActionItem>
+</ActionBar>
+<FlexboxLayout class="page" #pageview loaded="pageLoaded">
+	<GridLayout>
+		<StackLayout>
+			<StackLayout class="titlecontainer">
+				<Label class="header" text="Login to {{networkService.config.name}}"></Label>
+			</StackLayout>
+			<StackLayout class="form">
+					<Label class="boldlabel" text="Username:"></Label>
+					<StackLayout class="input-field">
+						<TextField style="margin-bottom:0; padding-bottom:0"  [isEnabled]="!processing" class="input" hint="Username" [(ngModel)]="username"
+							autocorrect="false" autocapitalizationType="none" returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+						<StackLayout style="margin-top:0; padding-top:0"  class="hr-light"></StackLayout>
+					</StackLayout>
+					<Label class="boldlabel" text="Password:"></Label>
+					<StackLayout class="input-field">
+						<TextField [isEnabled]="!processing" style="margin-bottom:0; padding-bottom:0"  #passwordControl class="input" [(ngModel)]="password"
+							hint="Password" secure="true" returnKeyType="done"></TextField>
+						<StackLayout style="margin-top:0; padding-top:0"  class="hr-light"></StackLayout>
+					</StackLayout>
+
+					<Button [isEnabled]="!processing" text="Log In &#xf090;" class="btn btn-success fa fa-2x" (tap)="login()"></Button>
+<!--  					<Button [isEnabled]="!processing" text="Hint" class="btn btn-success" (tap)="hint('hintbutton', 'hi therematey!')" id="hintbutton"></Button> -->
+ 					<Label *ngIf="haserror" textWrap='true' class="errormessage" [text]="errormessage"></Label>
+				</StackLayout>
+		</StackLayout>
+		<ActivityIndicator scaleX="2" scaleY="2" rowSpan="3" busy="{{processing}}"></ActivityIndicator>
+	</GridLayout>
+</FlexboxLayout>

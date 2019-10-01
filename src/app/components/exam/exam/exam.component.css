@@ -1,0 +1,22 @@
+ /* overlay over  a disabled exam*/
+ .disabled .disabled-exam {
+    visibility: visible;
+    /* animation-name: show;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; */
+    opacity: 0.2;
+    background-color: black;
+  }
+  
+  .disabled .content {
+    opacity: 0.2;
+    background-color: black;
+  }
+
+  .disconnected{
+    color: #d43f3a;
+  }
+
+  Button, TextField {
+    margin-bottom: 10;
+  }

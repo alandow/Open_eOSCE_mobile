@@ -1,0 +1,20 @@
+<!-- <Page xmlns="http://www.nativescript.org/tns.xsd" shownModally="onShownModally" style="background-color:black; opacity: 0.2;" > -->
+
+<StackLayout class="dialog" width="70%" height="90%">
+    <StackLayout orientation="horizontal" style="padding-top: 5">
+        <SearchBar hint="Search" (textChange)="onStudentSearchTextChanged($event)"
+            (submit)="onStudentSearchTextChanged($event)" textFieldHintColor="gray"></SearchBar>
+    </StackLayout>
+    <ScrollView height="80%">
+        <StackLayout *ngIf="studentlist" orientation="vertical">
+            <StackLayout *ngFor="let student of displayedStudentList._array">
+                <ns-selectstudententry [student]='student' (studentSelectEvent)="selectStudent($event)">
+                </ns-selectstudententry>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+    <Button class="fa btn-warning" marginTop="5" height="50" text="Close &#xf00d;
+" (tap)="close()"></Button>
+</StackLayout>
+<!-- </Page> -->

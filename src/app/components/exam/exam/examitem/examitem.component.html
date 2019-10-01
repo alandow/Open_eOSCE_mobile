@@ -1,0 +1,35 @@
+<StackLayout orientation="vertical" width="100%" *ngIf="assessmentitem.visible" [@animationOption2]="" marginBottom="5" >
+    <Label *ngIf="!assessmentitem.heading" text=" {{assessmentitem.label}}" [class.normal]="formative==true"
+        [class.required]="formative==false&&(!assessmentitem.valid)"
+        [class.valid]="formative==false&&assessmentitem.valid" width="100%" textWrap="true" height="50"></Label>
+    <Label *ngIf="assessmentitem.heading" text=" {{assessmentitem.label}}" width="100%" height="50"
+        backgroundColor="#7ab800"></Label>
+    <StackLayout *ngIf="!assessmentitem.heading" orientation="horizontal" width="100%" marginTop="5" paddingRight="10" paddingLeft="5">
+
+
+        <StackLayout width="50%" orientation="vertical" paddingLeft="10" marginTop="10" marginBottom="10" >
+            <!-- <StackLayout *ngFor="let item of assessmentitem.items"> -->
+            <!-- make radio buttons here -->
+            <StackLayout *ngFor="let option of radioOptions">
+                <StackLayout orientation="horizontal" verticalAlignment="center" marginTop="5" marginBottom="5">
+                    <CheckBox:CheckBox #elem scaleX="1.5" scaleY="1.5" [checked]="option.selected"
+                        [isUserInteractionEnabled]="true"
+                        (checkedChange)="elem.checked !== option.selected && changeCheckedRadio(option)"
+                        class="checkbox" boxType="circle" fillColor="#f1632b" />
+                    <StackLayout verticalAlignment="center">
+                        <Label [text]="option.text" textWrap="true" (tap)="changeCheckedRadio(option)"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <!-- </StackLayout> -->
+            </StackLayout>
+        </StackLayout>
+        <!-- Make this dependent on some things -->
+
+        <TextView *ngIf="!hidecomments" width="50%" ngDefaultControl [class.requiredtextfield]="this.needscomment" 
+     
+            [class.normaltextfield]="!this.needscomment" fontSize='16' hint="Comment{{this.needscomment?'*required':''}}"
+            text="{{assessmentitem.comment}}" editable="false"  (tap)="notifyCommentClick()"
+            (textChange)="ontextChange()"></TextView>
+
+    </StackLayout>
+</StackLayout>
