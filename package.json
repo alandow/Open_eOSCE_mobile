@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
     "@nstudio/nativescript-snackbar": "^1.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "nativescript-angular": "~8.0.0",
     "nativescript-barcodescanner": "^3.2.0",
     "nativescript-checkbox": "^3.0.3",
